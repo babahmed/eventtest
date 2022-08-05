@@ -49,8 +49,8 @@ public class Solution
             distanceFromEvents.Add(new EventDistance { Event = e, Distance = distance });
         }
         distanceFromEvents.Sort((x, y) => x.Distance.CompareTo(y.Distance));
-        var count = distanceFromEvents.Count < 5 ? distanceFromEvents.Count : 5;
-        for (int i = 0; i < count; i++)
+        var limit = distanceFromEvents.Count < 5 ? distanceFromEvents.Count : 5;
+        for (int i = 0; i < limit; i++)
         {
             var price = GetPrice(distanceFromEvents[i].Event);
             AddToEmail(customer, distanceFromEvents[i].Event, price);
